@@ -7,8 +7,15 @@
     </head>
     <body>
         <div class="page404">
-            <h1> uh oh. you shouldn't be here! </h1>
+            <h1 class="page404text-large"> 404 </h1>
+            <h3 class="page404text-medium"> No such page exists </h3>
+            <button class="page404button" onclick="returnHome()"> Return Home </button>
         </div>
         <script src="../static/bundle.js"></script>
+        <script type="text/javascript">
+            function returnHome() {
+                window.location.href="/"
+            }
+        </script>
     </body>
 </html>
