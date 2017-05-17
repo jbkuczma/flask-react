@@ -13,3 +13,15 @@ app = Flask(
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/user/<userid>')
+def userPage(userid):
+    return 'your page!'
+
+@app.route('/user/<userid>/posts')
+def userPosts(userid):
+    return 'your posts!'
+
+@app.errorhandler(404)
+def pageNotFound(error):
+    return render_template('404.html')
