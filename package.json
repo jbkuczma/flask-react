@@ -1,0 +1,27 @@
+{
+  "name": "flask-react",
+  "version": "0.0.1",
+  "description": "flask and react boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbkuczma/flask-react.git"
+  },
+  "keywords": [
+    "flask",
+    "react"
+  ],
+  "author": "James Kuczmarski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbkuczma/flask-react/issues"
+  },
+  "homepage": "https://github.com/jbkuczma/flask-react#readme",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}
