@@ -1,0 +1,13 @@
+.list {
+    list-style: none;
+    /*text-align: center;*/
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.postListPost {
+    text-align: center;
+    padding: 14px 16px;
+    background: #EFEFEF;
+}
