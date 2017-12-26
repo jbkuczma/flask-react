@@ -11,15 +11,20 @@ notes = {
 
 @app.route('/api/v1/notes', methods=['GET','POST'])
 def serve():
-    if request.method == 'GET':
-        return Response(
-            json.dumps(notes),
-            mimetype='application/json',
-            headers={
-                'Cache-Control': 'no-cache',
-                'Access-Control-Allow-Origin': '*'
-            }
-        )
+    print(request.form)
+    if request.method == 'POST':
+        new_note = request.form['note']
+        new_note_id = len(notes)
+        notes[new_note_id] = new_note
+
+    return Response(
+        json.dumps(notes),
+        mimetype='application/json',
+        headers={
+            'Cache-Control': 'no-cache',
+            'Access-Control-Allow-Origin': '*'
+        }
+    )
 
 if __name__ == '__main__':
     app.run(
