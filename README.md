@@ -8,7 +8,7 @@ Boilerplate with a Flask backend and React frontend
     cd flask-react
     
     ** In one tab **
-    sh setup.sh -> start flask server
+    sh setup.sh -> install frontend and backend dependencies and start the Flask server
     
     ** In another tab **
     npm start -> start frontend development server
