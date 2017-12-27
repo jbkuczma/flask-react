@@ -7,8 +7,8 @@ Boilerplate with a Flask backend and React frontend
     virtualenv flask-react (recommended)
     cd flask-react
     
-    pip install -r requirements.txt
-    npm install
+    ** In one tab **
+    sh setup.sh -> start flask server
     
-    npm run watch -> watch for any jsx file changes with webpack
-    sh start.sh -> start flask server
+    ** In another tab **
+    npm start -> start frontend development server
