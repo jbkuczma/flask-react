@@ -13,8 +13,18 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      note: ''
+      note: '',
+      notes: []
     };
+  }
+
+  componentDidMount() {
+    const api_url = '/api/v1/notes';
+    fetch(api_url)
+      .then(response => response.json())
+      .then(data => this.setState({
+        notes: data
+      }));
   }
 
   _handleChange = (event) => {
@@ -26,22 +36,25 @@ class Home extends Component {
   _handleSubmit = (event)  => {
     event.preventDefault();
     const {note} = this.state;
-    const api_url = 'http://localhost:3001/api/v1/notes';
+    const api_url = '/api/v1/notes';
     const options = {
       method: 'POST',
-      data: {
+      body: JSON.stringify({
         note: note
+      }),
+      headers: {
+        'Content-Type': 'application/json'
       }
     };
     fetch(api_url, options)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        this.setState({
+          note: '',
+          notes: data
+        })
+      })
       .catch(error => console.log(error));
-
-    // reset state
-    this.setState({
-      note: ''
-    });
   }
 
   render() {
@@ -55,14 +68,14 @@ class Home extends Component {
         <div className="home-intro">
           {/* To get started, edit <code>src/App.js</code> and save to reload. */}
           {
-            Object.keys(this.props.notes).map((idx) => {
-              return <Note key={idx} note={this.props.notes[idx]} />
+            Object.keys(this.state.notes).map((idx) => {
+              return <Note key={idx} note={this.state.notes[idx]} />
             })
           }
         </div>
         <div>
           <form onSubmit={this._handleSubmit}>
-            <input type="text" name="note" placeholder="Add a new note" onChange={this._handleChange}/>
+            <input type="text" name="note" placeholder="Add a new note" onChange={this._handleChange} value={this.state.note} />
             <input type="submit" value="Submit" />
           </form>
         </div>

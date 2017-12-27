@@ -11,9 +11,8 @@ notes = {
 
 @app.route('/api/v1/notes', methods=['GET','POST'])
 def serve():
-    print(request.form)
-    if request.method == 'POST':
-        new_note = request.form['note']
+    if request.method == 'POST' and request.is_json:
+        new_note = request.get_json()['note']
         new_note_id = len(notes)
         notes[new_note_id] = new_note
 
@@ -29,6 +28,6 @@ def serve():
 if __name__ == '__main__':
     app.run(
         host='0.0.0.0',
-        port=3001,
+        port=4000,
         debug=True
     )
